@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  vector_db:
+    # ใช้ Image ทางการของ Postgres 16 ที่ติดตั้ง pgvector มาให้แล้ว
+    image: pgvector/pgvector:pg16
+    container_name: secure-rag-postgres
+    restart: always
+    ports:
+      - "5432:5432"  # เปิดประตูพอร์ตมาตรฐานของ Postgres
+    environment:
+      POSTGRES_DB: rag_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: securepassword123
+    volumes:
+      # ยึดข้อมูลไว้กับฮาร์ดดิสก์คุณ (ต่อให้ปิดคอมฯ เปิดใหม่ ข้อมูล 5,810 Chunks ก็จะไม่หายไปไหน)
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
