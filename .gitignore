@@ -1,0 +1,34 @@
+﻿# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# Model files (large files)
+*.bin
+*.pt
+*.ckpt
+*.safetensors
+
+# Logs
+*.log
+logs/
